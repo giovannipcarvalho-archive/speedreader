@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>Speed Reader</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="css/main.css" />
+<link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css" type="text/css" />
+
+<!-- angular -->
+<!--<script src="bower_components/angular/angular.min.js" type="text/javascript"></script>-->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+<script src="bower_components/angular-animate/angular-animate.min.js" type="text/javascript"></script>
+<script src="bower_components/angular-aria/angular-aria.min.js" type="text/javascript"></script>
+<script src="bower_components/angular-messages/angular-messages.min.js" type="text/javascript"></script>
+<script src="bower_components/angular-material/angular-material.min.js" type="text/javascript"></script>
+<script src="js/speedreader.js" type="text/javascript"></script>
+
+</head>
+
+<body ng-app="speedreader" ng-controller="MainController" ng-keypress="hotkey($event)"
+	ng-mouse-wheel-up="prev()"
+	ng-mouse-wheel-down="next()">
+	
+	WPM: {{ wpm }} <br/>
+	Progress: {{ progress | number:0}}% <br/>
+	
+	<h1 id="prevbox">{{ prevword }}</h1>
+	<h1 id="textbox" ng-keypress="hotkey()">{{ word }}</h1>
+	<h1 id="nextbox">{{ nextword }}</h1>
+</body>
+
+</html>

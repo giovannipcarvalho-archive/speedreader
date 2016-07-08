@@ -1,0 +1,15 @@
+{
+  "name": "speedreader",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "bower install",
+    "start": "python -m SimpleHTTPServer 80"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "bower": "^1.7.9"
+  }
+}
