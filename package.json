@@ -1,15 +1,19 @@
 {
   "name": "speedreader",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "SpeedReader",
+  "main": "app/main.js",
   "scripts": {
     "postinstall": "bower install",
-    "start": "python -m SimpleHTTPServer 8000"
+    "start": "electron ."
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "bower": "^1.7.9"
+    "bower": "^1.7.9",
+    "electron": "^1.4.1"
+  },
+  "dependencies": {
+    "fs": "0.0.1-security"
   }
 }

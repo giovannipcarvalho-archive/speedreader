@@ -6,8 +6,7 @@
 <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css" type="text/css" />
 
 <!-- angular -->
-<!--<script src="bower_components/angular/angular.min.js" type="text/javascript"></script>-->
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+<script src="bower_components/angular/angular.min.js" type="text/javascript"></script>
 <script src="bower_components/angular-animate/angular-animate.min.js" type="text/javascript"></script>
 <script src="bower_components/angular-aria/angular-aria.min.js" type="text/javascript"></script>
 <script src="bower_components/angular-messages/angular-messages.min.js" type="text/javascript"></script>
@@ -18,14 +17,23 @@
 
 <body ng-app="speedreader" ng-controller="MainController" ng-keypress="hotkey($event)"
 	ng-mouse-wheel-up="prev()"
-	ng-mouse-wheel-down="next()">
+	ng-mouse-wheel-down="next()"
+	style="-webkit-app-region: drag">
 	
+	<span class="status">
 	WPM: {{ wpm }} <br/>
 	Progress: {{ progress | number:0}}% <br/>
+	</span>
 	
+	<div id="info"><h1>Drag & drop a text file.</h1>
+	<h3>Press ? for help.</h3></div>
+
 	<h1 id="prevbox">{{ prevword }}</h1>
 	<h1 id="textbox" ng-keypress="hotkey()">{{ word }}</h1>
 	<h1 id="nextbox">{{ nextword }}</h1>
 </body>
 
+<script>
+	require('./renderer.js');
+</script>
 </html>
