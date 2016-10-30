@@ -97,8 +97,10 @@ app.controller('MainController', ['$scope', '$interval', '$mdDialog',
 				pause();
 			}
 		} else if (event.keyCode == 106){
+			pause();
 			$scope.next();
 		} else if (event.keyCode == 107){
+			pause();
 			$scope.prev();
 		} else if (event.keyCode == 45 || event.keyCode == 95){
 			$scope.wpm -= 10;
@@ -131,6 +133,7 @@ app.controller('MainController', ['$scope', '$interval', '$mdDialog',
 		        .title('Help')
 		        .htmlContent('Press +/- to adjust WPM. <br/>\
 							  Space to play/pause. <br/> \
+							  J/K to move forward/backwards <br/> \
 							  C to change colorscheme. <br/> \
 							  R to reset.')
 		        .ariaLabel('Help')
