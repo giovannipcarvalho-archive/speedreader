@@ -1,6 +1,6 @@
 /* global angular */
 var fs = require('fs');
-var app = angular.module('speedreader', ['ngMaterial']);
+var app = angular.module('speedreader', ['ngMaterial', 'ngSanitize']);
 
 app.controller('MainController', ['$scope', '$interval', '$mdDialog',
 	function($scope, $interval, $mdDialog){
@@ -16,6 +16,7 @@ app.controller('MainController', ['$scope', '$interval', '$mdDialog',
 		fs.readFile(filepath, 'utf8', function(err, data){
 			if(err) return console.log(err);
 			text = data;
+			text = text.replace(/(\r\n|\n|\r)/gm, " ");
 			$scope.text = text.split(" ");
 			$scope.prevword = "";
 			$scope.word = $scope.text[0];
@@ -128,7 +129,10 @@ app.controller('MainController', ['$scope', '$interval', '$mdDialog',
 		      $mdDialog.alert()
 		        .clickOutsideToClose(true)
 		        .title('Help')
-		        .textContent('Press +/- to adjust WPM. Space to play/pause. C to change colorscheme.')
+		        .htmlContent('Press +/- to adjust WPM. <br/>\
+							  Space to play/pause. <br/> \
+							  C to change colorscheme. <br/> \
+							  R to reset.')
 		        .ariaLabel('Help')
 		        .ok('Got it!')
 		    );
